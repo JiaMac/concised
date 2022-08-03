@@ -160,7 +160,6 @@ def uninstalled() {
   }
 }
 
-
 def installedMain() {
   initializeMain()
 }
@@ -207,7 +206,6 @@ def mainSetupPage() {
     }
   }
 }
-
 
 def mainPage() {
   dynamicPage(name: 'mainPage', title: 'Lock Manager', install: true, uninstall: true, submitOnChange: true) {
@@ -1073,7 +1071,6 @@ def updateCode(event) {
                 code = 'invalid'
                 codeState = 'unexpected'
               }
-
               break
           }
           state.codes["slot${slot}"].code = code
@@ -1184,7 +1181,7 @@ def keypadLockEvent(evt, data) {
     }
   }
 }
-
+ 
 def userDidLock(userApp) {
   def message = "${lock.label} was locked by ${userApp.userName}"
   debugger(message)
@@ -1200,7 +1197,6 @@ def userDidLock(userApp) {
   if (parent.codeLockRoutine) {
     parent.executeHelloPresenceCheck(parent.codeLockRoutine)
   }
-
   // messages
   if (userApp.notifyLock || parent.notifyLock) {
     userApp.sendUserMessage(message)
@@ -1228,7 +1224,6 @@ def userDidUnlock(userApp) {
   if (parent.codeUnlockRoutine) {
     parent.executeHelloPresenceCheck(parent.codeUnlockRoutine)
   }
-
   //Send Message
   if (userApp.notifyAccess || parent.notifyAccess) {
     userApp.sendUserMessage(message)
@@ -1265,13 +1260,6 @@ def manualUnlock(evt) {
       parent.executeHelloPresenceCheck(parent.manualUnlockRoutine)
     }
   }
-}
-
-def commandUnlock(evt) {
-  // no options for this scenario yet
-}
-def autoLock(evt) {
-  // no options for this scenario yet
 }
 
 def setCodes() {
